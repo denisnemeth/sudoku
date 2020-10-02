@@ -22,13 +22,14 @@ public class Board {
     }
 
     private void reduceAvailableValuesInRow() {
-        for (int i = 1; i < tiles.length; i++) {
-            for (int j = 1; j < tiles.length; j++) {
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles.length; j++) {
                 if (tiles[i][j].getValue() == 0) {
-                    for (int k = 1; k < 9; k++) {
-                        System.out.print(tiles[k][j].getValue());
-                        if (tiles[i][j].contains(tiles[k][j].getValue())) tiles[i][j].remove(tiles[k][j].getValue());
+                    for (int k = 0; k < 9; k++) {
+                        System.out.print(tiles[i][k].getValue() + " ");
+                        if (tiles[i][j].contains(tiles[i][k].getValue())) tiles[i][j].remove(tiles[i][k].getValue());
                     }
+                    System.out.println(tiles[i][j].printAvailable());
                     System.out.println();
                 }
             }
@@ -36,13 +37,14 @@ public class Board {
     }
 
     private void reduceAvailableValuesInColumn() {
-        for (int i = 1; i < tiles.length; i++) {
-            for (int j = 1; j < tiles.length; j++) {
-                if (tiles[j][i].getValue() == 0) {
-                    for (int k = 1; k < 9; k++) {
-                        System.out.print(tiles[k][j].getValue());
-                        if (tiles[j][i].contains(tiles[j][k].getValue())) tiles[j][i].remove(tiles[j][k].getValue());
+        for (int i = 0; i < tiles.length; i++) {
+            for (int j = 0; j < tiles.length; j++) {
+                if (tiles[i][j].getValue() == 0) {
+                    for (int k = 0; k < 9; k++) {
+                        System.out.print(tiles[k][j].getValue() + " ");
+                        if (tiles[i][j].contains(tiles[k][j].getValue())) tiles[i][j].remove(tiles[k][j].getValue());
                     }
+                    System.out.println(tiles[i][j].printAvailable());
                     System.out.println();
                 }
             }

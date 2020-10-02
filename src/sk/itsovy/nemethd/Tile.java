@@ -30,4 +30,8 @@ public class Tile {
     public void add(int value) {available.add(value);}
 
     public int getSize() {return available.size();}
+
+    public Set getAvailableValues() {return available;}
+
+    public String printAvailable() {return available.toString();}
 }
